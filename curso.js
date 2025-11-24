@@ -1,5 +1,5 @@
 
-
+// Funcion de bienvenida 
 function saludar(nombre, apellido) {
   console.log("Hola " + nombre + " " + apellido);
 }
@@ -19,7 +19,7 @@ let iniciar = confirm ("¿Quieres comprar relojes?")
 
 
 
-// Array de relojes
+// Array relojes
 let relojes = [
   { marca: "Casio", precio: 5000 },
   { marca: "Rolex", precio: 10000 },
