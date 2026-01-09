@@ -27,11 +27,23 @@ let relojes = [
 ];
 
 // Carrito vacío
-let carrito = [];
+function guardarCarrito() {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+let carrito = JSON.parse (localStorage.getItem ("carrito")) || [];
+
+
+
 
 // Función principal
 function tiendaRelojes() {
   let opcion = "";
+
+if (carrito.length > 0) {
+  alert("Tenés " + carrito.length + " producto(s) en el carrito guardado.");
+}
+
 
   while (opcion !== "3") {
     opcion = prompt(
@@ -57,18 +69,20 @@ function tiendaRelojes() {
 
       if (encontrado) {
         carrito.push(encontrado);
+        guardarCarrito();
         alert("Agregado al carrito: " + encontrado.marca);
       } else {
         alert("Esa marca no existe.");
-      }
+      } 
     }
+    
 
-    else if (opcion === "3") {
+     else if (opcion === "3") {
       alert("Gracias por visitar la tienda.");
     }
 
     else {
-      alert("Opción incorrecta, intenta nuevamente.");
+      alert("Desea seguir comprando?");
     }
   }
 
@@ -77,3 +91,6 @@ function tiendaRelojes() {
 
 // Ejecutar tienda
 tiendaRelojes();
+
+alert ("¿Quieres ver tu carrito hasta ahora?")
+
